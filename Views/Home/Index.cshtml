@@ -1,0 +1,408 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "../Shared/_RegisterLayout";
+    @* @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers *@
+}
+@model Learn.Models.LogRegWrapper
+
+<div class="text-center">
+<!-- Full Page Intro -->
+<div class="view full-page-intro" style="
+background-image: url('https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3600&q=80');  
+                        
+background-repeat: no-repeat;
+background-size: cover;
+background-position-y: 50%;
+background-position-x: 50%; 
+                        
+">
+    <!-- Mask & flexbox options-->
+    <div class="rgba-black-strong d-flex justify-content-center align-items-center">
+    <!-- Content -->
+    <div class="container-fluid">
+        <!--Grid row-->
+        <div class="row wow">
+        <!--Grid column-->
+        <div class="col-md-6 m-5 white-text text-center text-md-left">
+            <h1 class="titlePop display-2 font-weight-bold">
+            Learn
+            </h1>
+            <hr class="hr-light" />
+            <p class='subtitle'>
+            <strong>A supplemental tool to enhance your student's education.</strong>
+            </p>
+            @* <p class="mb-4 d-none d-md-block">
+            <strong>Using Learn's world class digital tools, students are exposed to an endless variety of educational content to reinforce core concepts.</strong>
+            </p> *@
+            <a type="button" id='modalButton' data-toggle="modal" data-target="#signUpModal"
+            class="btn btn-indigo btn-lg">Create Account
+            <i class="fas fa-user ml-2"></i>
+            </a>
+            <a type="button" id='modalButton2' data-toggle="modal" data-target="#signInModal"
+            class="btn btn-indigo btn-lg">Sign-in &nbsp;
+            <i class="fas fa-sign-in-alt"></i>
+            </a>
+        </div>
+        <!--SIGN-UP Modal-->
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalTitle"
+        aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalTitle">Create Account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hiden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <form class="p-3" id="register" asp-area="" asp-action="Register" asp-controller="Home" method="POST">
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Register.Username"></span>
+                    <i class="fas fa-user fa-sm prefix" aria-hidden="true"></i>
+                    <label asp-for="Register.Username">Username</label>
+                    <input asp-for="Register.Username" class="form-control form-control-lg" />
+                    </div>
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Register.Email"></span>
+                    <i class="fa fa-envelope prefix"></i>
+                    <label asp-for="Register.Email">Email</label>
+                    <input asp-for="Register.Email" class="form-control form-control-lg" />
+                    </div>
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Register.Password"></span>
+                    <i class="fas fa-lock prefix" toggle='#Password' id="lockCon" aria-hidden="true"></i>
+                    <label asp-for="Register.Password">Password</label>
+                    <input asp-for="Register.Password" type="password" id="Password" class="form-control form-control-lg" />
+                    </div>
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Register.Confirm"></span>
+                    <i class="fas fa-eye-slash prefix" toggle="#Confirm" id="eyeCon" aria-hidden="true"></i>
+                    <label asp-for="Register.Confirm">Confirm</label>
+                    <input asp-for="Register.Confirm" type="password" id="Confirm" class="form-control form-control-lg" />
+                    </div>
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-indigo">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--End SIGN-UP Modal-->
+
+        <!--SIGN-IN Modal-->
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalTitle"
+        aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="signInModalTitle">Sign-in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hiden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <form class="p-3" id="login" asp-area="" asp-action="Login" asp-controller="Home" method="POST">
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Login.Email"></span>
+                    <i class="fa fa-envelope prefix"></i>
+                    <label for="Login_Email">Email</label>
+                    <input asp-for="Login.Email" id="Login_Email" class="form-control form-control-lg" />
+                    </div>
+                    <div class="md-form text-left">
+                    <span class="text-danger" asp-validation-for="Login.Password"></span>
+                    <i class="fas fa-lock prefix" toggle=#Login_Password aria-hidden="true"></i>
+                    <label for="Login_Password">Password</label>
+                    <input asp-for="Login.Password" type="password" id="Login_Password" class="form-control form-control-lg" />
+                    </div>
+                    <div class="modal-footer">
+                    <button class="btn btn-indigo">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--End SIGN-IN Modal-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+</div>
+<!-- Full Page Intro -->
+<!--Main layout-->
+<main>
+    <div class="container">
+    <!--Section: Main info-->
+    <section class="mt-5 wow fadeIn">
+        <!--Grid row-->
+        <div class="row align-items-center">
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            @* <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3953&q=80"
+            class="img-fluid z-depth-1-half" alt="" /> *@
+            <img
+            src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            class="img-fluid z-depth-1-half" alt="" />
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            <!-- Main heading -->
+            <h3 class="h3 mb-3">Repetition Makes Memory</h3>
+            <p>
+            Each level is designed to build upon the last.
+            </p>
+            <p>Practice as many times as you want before taking each level's quiz.</p>
+            <!-- Main heading -->
+            <hr />
+            <p>
+            <strong>12</strong> levels,
+            <strong>Thousands</strong> of flash cards for each level.
+            <strong>Free to use!</strong>
+            </p>
+
+            <!-- CTA -->
+            @* <a target="_blank" href="#" class="btn btn-indigo btn-md">View Live Demo
+            <i class="far fa-image ml-1"></i>
+            </a> *@
+        </div>
+        <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </section>
+    <!--Section: Main info-->
+
+    <hr class="my-5" />
+
+    <!--Section: Main features & Quick Start-->
+    <section>
+        <h3 class="h3 text-center mb-5 ml-4">About Learn</h3>
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-1"></div>
+        <div class="col-md-10 px-4">
+            <!--First row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-divide fa-2x cyan-text"></i>
+            </div>
+            <div class="col-10">
+                <h5 class="feature-title">Fundamentals</h5>
+                <p class="grey-text">
+                Learn is designed to reinforce fundamental concepts taught in the classroom. In the
+                <strong>Fractions</strong> section of Learn, students utilize ditigal flash cards to practice concepts
+                like <strong> Greatest Common Factor</strong> and <strong>Least Common Multiple</strong> to add and
+                subtract fractions.
+                </p>
+            </div>
+            </div>
+            <!--/First row-->
+
+            <div style="height: 30px"></div>
+
+            <!--Second row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-lightbulb fa-2x cyan-text"></i>
+            </div>
+            <div class="col-10">
+                <h5 class="feature-title">Tips</h5>
+                <p class="grey-text">
+                Learn provides quick tips in each section to help reinforce key concepts using textbook terminology.
+                </p>
+            </div>
+            </div>
+            <!--/Second row-->
+
+            <div style="height: 30px"></div>
+
+            <!--Third row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-graduation-cap fa-2x cyan-text"></i>
+            </div>
+            <div class="col-10">
+                <h5 class="feature-title">Tutorials</h5>
+                <p class="grey-text">
+                Each section will have a supplemental video that covers the fundamental concepts to be practiced. We
+                encourage parents to reinforce the connection between classroom instruction and the Learn platform.
+                </p>
+            </div>
+            </div>
+            <!--/Third row-->
+        </div>
+        <div class="col-md-1"></div>
+        <!--/Grid column-->
+        </div>
+        <!--/Grid row-->
+    </section>
+    <!--Section: Main features & Quick Start-->
+
+    <hr class="my-5" />
+
+    <!--Section: Not enough-->
+    <section>
+        <h2 class="my-5 h3 text-center ml-5">In the future...</h2>
+
+        <!--First row-->
+        <div class="row features-small mb-5 mt-3 wow fadeIn">
+        <!--First column-->
+        <div class="col-md-4">
+            <!--First row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-tools fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">
+                Teacher Tools
+                </h6>
+                <p class="grey-text">
+                Teacher's will be able to track student progress, create customized quizzes and tests, and do it all through the online Learn platform.
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-paragraph fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">Grammar</h6>
+                <p class="grey-text">
+                A section to reinforce proper grammar by repetitio, highlighting the most common pitfalls. 
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-book-reader fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">Reading Comprehension</h6>
+                <p class="grey-text">
+                While standardized tests give students only one chance to remember what they read, Learn takes a different approach. Students are asked 'big picture' questions first, then more detailed questions second, giving the student the opportunity to re-read the same content again each time.
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/Third row-->
+        </div>
+        <!--/First column-->
+
+        <!--Second column-->
+        <div class="col-md-4 flex-center my-2">
+            <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="Unsplash image"
+            class="z-depth-0 img-fluid" />
+        </div>
+        <!--/Second column-->
+
+        <!--Third column-->
+        <div class="col-md-4">
+            <!--First row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-users fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">Family Accounts</h6>
+                <p class="grey-text">
+                Parents can sign up multiple children under one account, and connect each student to their teacher using their teacher's classroom code.
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/First row-->
+
+            <!--Second row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-user-graduate fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">Test Prep</h6>
+                <p class="grey-text">
+                Learn uses the latest information available to create custom test preparation per subject that reinforces core problem solving skills via repetition and reward.
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/Second row-->
+
+            <!--Third row-->
+            <div class="row">
+            <div class="col-1 mr-3">
+                <i class="fas fa-mobile-alt fa-2x indigo-text"></i>
+            </div>
+            <div class="col-10">
+                <h6 class="feature-title">Mobile App</h6>
+                <p class="grey-text">
+                While Learn is accessible on any device with an internet connection, we are creating a mobile and tablet application version for iPhone and Android devices.
+                </p>
+                <div style="height: 15px"></div>
+            </div>
+            </div>
+            <!--/Third row-->
+        </div>
+        <!--/Third column-->
+        </div>
+        <!--/First row-->
+    </section>
+    <!--Section: Not enough-->
+
+    <hr class="mb-5" />
+    </div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+    <!--Call to action-->
+    <div class="pt-4">
+    <a class="btn btn-outline-white" href="mailto:achristopherwheeler@gmail.com"
+    target="_blank" role="button">Contact
+        <i class="far fa-envelope ml-2"></i>
+    </a>
+    <a class="btn btn-outline-white" href="#" target="_blank"
+    role="button">Portfolio
+        <i class="fas fa-briefcase ml-2"></i>
+    </a>
+    </div>
+    <!--/.Call to action-->
+
+    <hr class="my-4" />
+
+    <!-- Social icons -->
+    <div class="pb-4">
+    <a href="https://github.com/AndrewCWheeler" target="_blank">
+        <i class="fab fa-github mr-3"></i>
+    </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+    © 2021 Copyright
+    <a href="#" target="_blank">
+    </a>
+    </div>
+    <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
+</div>

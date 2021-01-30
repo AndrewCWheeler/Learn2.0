@@ -1,0 +1,48 @@
+@{
+  ViewData["Title"] = "Multiply Level One";
+}
+@using Learn.Models
+@model FractionCard[]
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1 d-xlg-none"></div>
+    <div class="col-sm-3 justify-content-end mt-4 tipCol">
+      <div class="tips">
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #1:</h5> Any number multiplied by 1 will always equal
+          that number. For example, 6 x 1 = <strong>6</strong>.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #2:</h5> Any number multiplied by 2 will always equal
+          that number plus itself. For example, 6 x 2 = <strong>6 + 6</strong>, which equals <strong>12</strong>.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #3:</h5> It's ok to <strong>memorize</strong> single
+          digit multiples. You will use these types of <strong>simple</strong> calculations to perform more
+          <strong>complex</strong> calculations later.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h4 class="text-center instructions mt-4">Multiply the numbers. Tap the card to see the solution.</h4>
+      <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+          <div class="cardContainer">
+            <div class="flashCard">
+              <div class="front">
+                <p>@item.Dividend</p>
+                <p class="mx-3" style="font-size:42px">x</p>
+                <p>@item.Divisor</p>
+              </div>
+              <div class="back mb-5">@item.Whole</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>

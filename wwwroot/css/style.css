@@ -1,0 +1,71 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+
+.subtitle {
+  font-size: 2rem;
+}
+
+.whiteText {
+  color: white !important;
+}
+.view,
+body,
+html {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+@media (max-width: 740px) {
+  .full-page-intro {
+    height: 100%;
+  }
+}
+
+.myNavFlex {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.myNavFlex .nav-item {
+  flex-basis: 10%;
+}
+
+/* Half Page Carousel itself*/
+.carousel {
+  height: 50%;
+}
+.carousel .carousel-inner {
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item,
+.carousel .carousel-inner .active {
+  height: 100%;
+}
+
+/* Adjustment for mobile devices*/
+@media (max-width: 776px) {
+  .carousel {
+    height: 100%;
+  }
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top-nav-collapse {
+  background-color: #1c2331;
+}
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1c2331;
+  }
+}
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1c2331;
+}

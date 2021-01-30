@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Learn</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <!--Material Design Bootstrap & SCSS -->
+    <link rel="stylesheet" href="~/css/mdb.min.css" />
+    <link rel="stylesheet" href="~/scss/mdb.scss" />
+    <link rel="stylesheet" href="~/scss/style.scss" />
+    <!--Custom Styles-->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <header>
+    <nav
+    class="navbar fixed-top navbar-expand-sm navbar-toggleable-sm navbar-dark navback scrolling-navbar box-shadow mb-5">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="#">Learn</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex">
+        <ul class="navbar-nav flex-grow-1 align-items-center d-flex">
+            <li class="nav-item mx-3">
+            <div class="dropdown">
+                <button class="btn btn-indigo btn-sm dropdown-toggle" type="button" id="dropdownFractions"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Fractions
+                </button>
+                <div class="dropdown-menu">
+                <div class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle dropright" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Division</a>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="DivideLevelOne">Level 1</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="DivideLevelTwo">Level 2</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="DivideLevelThree">Level
+                        3</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Exam</a>
+                    </div>
+                </div>
+                <div class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle dropright" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Multiplication</a>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="MultiplyLevelOne">Level
+                        1</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="MultiplyLevelTwo">Level
+                        2</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="MultiplyLevelThree">Level
+                        3</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Exam</a>
+                    </div>
+                </div>
+                <div class="dropdown-submenu">
+                    <a class="dropdown-item dropdown-toggle dropright" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Addition</a>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="AddLevelOne">Level 1</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="AddLevelTwo">Level 2</a>
+                    <a class="dropdown-item" asp-area="" asp-controller="Fractions" asp-action="AddLevelThree">Level 3</a>
+                    <div class="dropdown-divider"></div>
+                    <p class="ml-3 text-light">Exam</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </li>
+            <li class="nav-item mx-3">
+            <div class='nav-link text-white'>@ViewData["Title"]</div>
+            </li>
+            <li class="nav-item mx-3">
+            <a class="nav-link text-white" id="Refresh">Refresh &nbsp;
+                <i class="fa fa-refresh fa-sm" aria-hidden="true"></i>
+            </a>
+            </li>
+            <li class="nav-item dropdown ml-auto mx-3" type="button">
+            <div class="nav-link text-white dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+                @ViewBag.LoggedUser.Username
+            </div>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" asp-controller="Home" asp-action="Logout">
+                Logout
+                </a>
+            </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    @* <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Learn - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/js/mdb.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

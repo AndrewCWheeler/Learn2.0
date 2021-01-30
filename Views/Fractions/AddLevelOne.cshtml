@@ -1,0 +1,110 @@
+@{
+  ViewData["Title"] = "Add Level One";
+}
+@using Learn.Models
+@model FractionCard[]
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1 d-xlg-none"></div>
+    <div class="col-sm-3 justify-content-end mt-4 tipCol">
+      <div class="tips">
+        <div class="row align-items-end">
+          <h1 class="text-warning ml-3"><i class="fas fa-star text-warning mr-3"></i>Correct:</h1>
+          <h1 class="text-warning ml-3" id="score">0</h1>
+        </div>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #1:</h5> Any number divided by itself will always equal
+          1. For example, 6 ÷ 6 = <strong>1</strong>.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #2:</h5> Any number divided by 1 will always be that
+          number. For example, 6 ÷ 1 = <strong>6</strong>.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #3:</h5> If the <strong>numerator</strong> (in this
+          case, the number on the <em>left</em>) is greater than the <strong>denominator</strong> (the number on the
+          <em>right</em>), then you know there is at least 1 whole number in the answer.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #4:</h5> If the <strong>numerator</strong> <em>and</em>
+          the <strong>denominator</strong> are both even numbers, then you know you will need to <strong>reduce</strong>
+          or <strong>simplify</strong> the fraction.
+        </p>
+        <p class="mb-5">
+          <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #5:</h5> If the <strong>denominator</strong> is
+          <strong>divisible</strong> by the <strong>numerator</strong>, then you know you will need to
+          <strong>reduce</strong> or <strong>simplify</strong> the fraction. Learn more <a target="_blank"
+          href="https://en.wikipedia.org/wiki/Divisibility_rule">here</a> about the <strong>Divisibility rule</strong>.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h4 class="text-center instructions my-4">Add the fractions together. Tap to rotate the cube and see the solutions.
+      </h4>
+      <div class="row justify-content-center remove">
+        @foreach (var item in Model)
+        {
+        <div class="scene inner-shadow">
+          <img class="@("hide"+item.Id)" id="@("image"+item.Id)" src="~/img/dancing.gif" />
+          <div class="cube" id="@item.Id">
+            <div class="cube__face cube__face--front align-items-center">
+              <p class="fractionAdd">@item.First</p>
+              <p class="mx-3 wholeStyle">+</p>
+              <p class="fractionAdd">@item.Second</p>
+              <p class="labeltr">Question</p>
+              @* <i class="labelbr fa fa-arrow-right"></i> *@
+            </div>
+            <div class="cube__face cube__face--right align-items-center">
+              <span class="fractionAdd">
+                @item.Answer
+              </span>
+              <p class="labeltr">Answer (Unsimplified)</p>
+              @* <i class="labelbr fa fa-arrow-right"></i> *@
+            </div>
+            <div class="cube__face cube__face--back align-items-center">
+              <p class="wholeStyle">@item.AnswerWhole</p>
+              <p class="fraction">@item.AnswerTwo</p>
+              <p class="labeltr">Answer (Simplified)</p>
+              @* <i class="labelbr fa fa-arrow-right"></i> *@
+            </div>
+            <div class="cube__face cube__face--left" style="display:block">
+              <h5 class="text-center mt-4">Summary:</h5>
+              <div class="row justify-content-center mt-3">
+                <p class="fractionAnswer">@item.First</p>
+                <p class="operands">+</p>
+                <p class="fractionAnswer">@item.Second</p>
+                <p class="operands">=</p>
+                <p class="fractionAnswer">@item.Answer</p>
+              </div>
+              <div class="row justify-content-center mt-2">
+                <p class="fractionAnswer">@item.Answer</p>
+                <p class="operands">=</p>
+                <p class="whole-answer">@item.AnswerWhole</p>
+                <p class="fractionAnswer">@item.AnswerTwo</p>
+              </div>
+              @* <i class="labelbr fa fa-arrow-down"></i> *@
+            </div>
+            <div class="cube__face cube__face--top align-items-center">
+              <p class="cubeText">
+                How did you do?
+              </p>
+              <p class="iconStyle">
+                <button id="@("delete"+item.Id)" class="btn btn-success" role="button">
+                  <i class="fas fa-thumbs-up"></i>
+                </button>
+                <button class="btn btn-danger button-down" role="button">
+                  <i class="fas fa-thumbs-down"></i>
+                </button>
+              </p>
+            </div>
+            <div class="cube__face cube__face--bottom align-items-center">
+              <p class="cubeText">Try Again?</p>
+              <i class="redoStyle fa fa-redo"></i>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Divide Level Three";
+}
+@using Learn.Models
+@model FractionCard[]
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-1 d-xlg-none"></div>
+    <div class="col-sm-3 justify-content-end mt-5 tipCol">
+        <div class="tips">
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #1:</h5> Recall from the previous level that the <strong>Greatest Common Factor</strong> is the largest number by which both the <strong>numerator</strong> and <strong>denominator</strong> can be divided. If you know the greatest common factor between two numbers, divide each by that number to get the <strong>simplified</strong> (also known as the <strong>reduced</strong>) fraction.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #2:</h5> If the <strong>Greatest Common Factor</strong> <em>is</em> the denominator, then you know the answer can only be a whole number.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #3:</h5> If you're not sure what the Greatest Common Factor is, that's OK! Choose a number that you <em>know</em> is a number by which both numbers are divisible. Then, repeat! Keep dividing the numbers until they can no longer be reduced.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #4:</h5> If you used the technique in tip #4 and you want to know what the Greatest Common Factor was, simply <em>multiply</em> all the numbers you used to divide the numbers. <em>For example:</em> if you asked to find the greatest common factor of 6 ÷ 18, you could divide both numbers by 2. Then you would have 3 ÷ 9. You could then divide each of these by 3, and you would have 1 ÷ 3 or 1/3 (one third). The greatest common factor of the original numbers is <strong>6</strong>, or <strong>2</strong> X <strong>3</strong>.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #5:</h5> Recall from the previous lesson that if <strong>denominator</strong> is <strong>divisible</strong> by the <strong>numerator</strong>, then you know you will need to <strong>reduce</strong> or <strong>simplify</strong> the fraction. Learn more <a target="_blank" href="https://en.wikipedia.org/wiki/Divisibility_rule">here</a> about the <strong>Divisibility rule</strong>.
+        </p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+            <h4 class="text-center instructions mt-4">Answer each with a reduced fraction. Tap the card to see the solution.</h4>
+            <div class="row justify-content-center">
+                @foreach(var item in Model){
+                    <div class="cardContainer">
+                        <div class="flashCard" >
+                            <div class="front">
+                                <p>@item.Dividend</p>
+                                <p class="mx-3" style="font-size:42px">÷</p>
+                                <p>@item.Divisor</p>
+                            </div>
+                            <div class="back mb-5">@item.Whole
+                                <span class="fraction">
+                                    @item.Answer
+                                </span>
+                            </div>
+                            @* <div style="font-size:16px" class="back my-5">Decimal: 1.333</div> *@
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

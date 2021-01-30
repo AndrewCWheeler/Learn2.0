@@ -1,0 +1,53 @@
+@{
+    ViewData["Title"] = "Divide Level Two";
+}
+@using Learn.Models
+@model FractionCard[]
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-1 d-xlg-none"></div>
+    <div class="col-sm-3 justify-content-end mt-5 tipCol">
+        <div class="tips">
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #1:</h5> The <strong>Greatest Common Factor</strong> is the largest number by which both the <strong>numerator</strong> and <strong>denominator</strong> can be divided. If you know the greatest common factor between two numbers, divide each by that number to get the <strong>simplified</strong> (also known as the <strong>reduced</strong>) fraction.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #2:</h5> Just because the numerator and/or denominator are large numbers does <em>not</em> mean the fraction must be reduced.
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #3:</h5> Recall from the previous level that if the <strong>numerator</strong> (in this case, the number on the <em>left</em>) is greater than the <strong>denominator</strong> (the number on the <em>right</em>), then you know there is at least 1 whole number in the answer. 
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #4:</h5> If the numerator is larger than the denominator, use the following tip: after dividing the <strong>numerator</strong> by the <strong>denominator</strong>, write the whole number as the first part of your answer. If there is a <strong>remainder</strong>, then the remainder will become the numerator of the fraction portion (the second part) of the answer. (Note: But be sure to simplify the fraction portion of your answer, if possible!).
+        </p>
+        <p class="mb-5">
+            <h5><i class="far fa-lightbulb cyan-text"></i> &nbsp;Tip #5:</h5> If the <strong>denominator</strong> is <strong>divisible</strong> by the <strong>numerator</strong>, then you know you will need to <strong>reduce</strong> or <strong>simplify</strong> the fraction. Learn more <a target="_blank" href="https://en.wikipedia.org/wiki/Divisibility_rule">here</a> about the <strong>Divisibility rule</strong>.
+        </p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+            <h4 class="text-center instructions mt-4">Answer each with a reduced fraction. Tap the card to see the solution.</h4>
+            <div class="row justify-content-center">
+                @foreach(var item in Model){
+                    <div class="cardContainer">
+                        <div class="flashCard" >
+                            <div class="front">
+                                <p>@item.Dividend</p>
+                                <p class="mx-3" style="font-size:42px">÷</p>
+                                <p>@item.Divisor</p>
+                            </div>
+                            <div class="back mb-5">@item.Whole
+                                <span class="fraction">
+                                    @item.Answer
+                                </span>
+                            </div>
+                            @* <div style="font-size:16px" class="back my-5">Decimal: 1.333</div> *@
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>

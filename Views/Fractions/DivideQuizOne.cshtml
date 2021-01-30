@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Divide Quiz One";
+}
+@using Learn.Models
+@model FractionCard[]
+
+
+<div class="container-fluid">
+  <h4 class="text-center instructions mt-4">Answer each with a reduced fraction. Tap the submit button card to the solutions.</h4>
+  <div class="row justify-content-center">
+  <div class="col-sm-1 offset-sm-1 tipCol mr-5">
+
+  </div>
+  <form class="col-sm-6 ml-5 justify-content-center">
+    <div class="row">
+      <div class="col-sm-1 mt-4">
+        <h1>1.</h1>
+      </div>
+      <div class="col-sm-10">
+
+        @* 1st Quiz Card *@
+        <div class="cardContainer">
+          <div class="quizCard">
+            <div class="front">
+              <p>3</p>
+              <p class="mx-3" style="font-size:42px">÷</p>
+              <p>4</p>
+            </div>
+          </div>
+        </div>
+        <div class="row my-5">
+          <div class="custom-control custom-radio">
+            <input class="custom-control-input form-check-input" type="radio" name="Answer1" id="Answer1.1">
+            <label for="Answer1.1" class="custom-control-label form-check-label align-items-middle"></label>
+              <p class="wholeStyleQuiz">4</p>
+              <p class="fractionAnswer">3/4</p>
+            </label>
+          </div>
+          <div class="custom-control custom-radio ml-3">
+            <input class="custom-control-input form-check-input" type="radio" name="Answer1" id="Answer1.2">
+            <label for="Answer1.2" class="custom-control-label form-check-label align-items-middle"></label>
+              <p class="wholeStyleQuiz"></p>
+              <p class="fractionAnswer">3/4</p>
+            </label>
+          </div>
+          <div class="custom-control custom-radio ml-3">
+            <input class="custom-control-input form-check-input" type="radio" name="Answer1" id="Answer1.3">
+            <label for="Answer1.3" class="custom-control-label form-check-label align-items-middle"></label>
+              <p class="wholeStyleQuiz"></p>
+              <p class="fractionAnswer">3/4</p>
+            </label>
+          </div>
+          <div class="custom-control custom-radio ml-3">
+            <input class="custom-control-input form-check-input" type="radio" name="Answer1" id="Answer1.4">
+            <label for="Answer1.4" class="custom-control-label form-check-label align-items-middle"></label>
+              <p class="wholeStyleQuiz">4</p>
+              <p class="fractionAnswer">3/4</p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    @* 2nd Quiz Card *@
+      <div class="cardContainer">
+        <div class="quizCard">
+          <div class="front">
+            <p>3</p>
+            <p class="mx-3" style="font-size:42px">÷</p>
+            <p>4</p>
+          </div>
+        </div>
+      </div>
+      <div class="row my-5">
+      <div class="custom-control custom-radio ml-3">
+        <input class="custom-control-input form-check-input" type="radio" name="Answer2" id="Answer2.1">
+        <label for="Answer2.1" class="custom-control-label form-check-label align-items-middle"></label>
+          <p class="wholeStyleQuiz">4</p>
+          <p class="fractionAnswer">3/4</p>
+        </label>
+      </div>
+      <div class="custom-control custom-radio ml-3">
+        <input class="custom-control-input form-check-input" type="radio" name="Answer2" id="Answer2.2">
+        <label for="Answer2.2" class="custom-control-label form-check-label align-items-middle"></label>
+          <p class="wholeStyleQuiz">4</p>
+          <p class="fractionAnswer">3/4</p>
+        </label>
+      </div>
+      <div class="custom-control custom-radio ml-3">
+        <input class="custom-control-input form-check-input" type="radio" name="Answer2" id="Answer2.3">
+        <label for="Answer2.3" class="custom-control-label form-check-label align-items-middle"></label>
+          <p class="wholeStyleQuiz">4</p>
+          <p class="fractionAnswer">3/4</p>
+        </label>
+      </div>
+      <div class="custom-control custom-radio ml-3">
+        <input class="custom-control-input form-check-input" type="radio" name="Answer2" id="Answer2.4">
+        <label for="Answer2.4" class="custom-control-label form-check-label align-items-middle"></label>
+          <p class="wholeStyleQuiz">4</p>
+          <p class="fractionAnswer">3/4</p>
+        </label>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
