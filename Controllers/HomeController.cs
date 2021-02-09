@@ -28,10 +28,10 @@ namespace Learn.Controllers
             int? LoggedUser = HttpContext.Session.GetInt32("UserId");
             if(LoggedUser == null)
             {
-                return View();
+                return View("Index");
             }
             HttpContext.Session.Clear();
-            return View();
+            return View("Index");
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace Learn.Controllers
                 if(_context.Users.Any(u => u.Email == user.Register.Email))
                 {
                     ModelState.AddModelError("Register.Email", "Already Registered? Please Log In.");
-                    return Index();
+                    return View("Index");
                 }
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
                 user.Register.Password = Hasher.HashPassword(user.Register, user.Register.Password);
@@ -53,10 +53,11 @@ namespace Learn.Controllers
             }
             else
             {
-            return Index();
+            return View("Index");
             }
         }
 
+        [HttpPost]
         public IActionResult Login(LogRegWrapper user)
         {
             if(ModelState.IsValid)
@@ -65,21 +66,21 @@ namespace Learn.Controllers
                 if(userInDb == null)
                 {
                     ModelState.AddModelError("Login.Email", "Invalid Email/Password");
-                    return Index();
+                    return View("Index");
                 }
                 PasswordHasher<LogInUser> Hasher = new PasswordHasher<LogInUser>();
                 PasswordVerificationResult Result = Hasher.VerifyHashedPassword(user.Login, userInDb.Password, user.Login.Password);
                 if(Result == 0)
                 {
                     ModelState.AddModelError("Login.Email", "Invalid Email/Password");
-                    return Index();
+                    return View("Index");
                 }
                 HttpContext.Session.SetInt32("UserId", userInDb.Id);
                 return RedirectToAction("DivideLevelOne", "Fractions");
             }
             else
             {
-                return Index();
+                return View("Index");
             }
         }
         public IActionResult Logout()

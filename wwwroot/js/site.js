@@ -74,12 +74,14 @@ $(function () {
         required: true,
         email: true,
       },
-      Password: {
+      'Register.Password': {
+        required: true,
         minlength: 8,
+        pattern: /^(?=.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/,
       },
-      Confirm: {
+      'Register.Confirm': {
         minlength: 8,
-        equalTo: '#Password',
+        equalTo: '#Register_Password',
       },
     },
     messages: {
@@ -90,6 +92,8 @@ $(function () {
       'Register.Password': {
         required: 'Please provide a password',
         minlength: 'Must be at least 8 characters...',
+        pattern:
+          'Password must be at least 8 characters long and contain at least 1 letter, 1 number and a special character(@$!%*#?&)',
       },
       'Register.Confirm': {
         required: 'Please provide a matching password',

@@ -9,12 +9,10 @@
 <!-- Full Page Intro -->
 <div class="view full-page-intro" style="
 background-image: url('https://images.unsplash.com/photo-1502101872923-d48509bff386?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3600&q=80');  
-                        
 background-repeat: no-repeat;
 background-size: cover;
 background-position-y: 50%;
-background-position-x: 50%; 
-                        
+background-position-x: 50%;
 ">
     <!-- Mask & flexbox options-->
     <div class="rgba-black-strong d-flex justify-content-center align-items-center">
@@ -31,9 +29,6 @@ background-position-x: 50%;
             <p class='subtitle'>
             <strong>A supplemental tool to enhance your student's education.</strong>
             </p>
-            @* <p class="mb-4 d-none d-md-block">
-            <strong>Using Learn's world class digital tools, students are exposed to an endless variety of educational content to reinforce core concepts.</strong>
-            </p> *@
             <a type="button" id='modalButton' data-toggle="modal" data-target="#signUpModal"
             class="btn btn-indigo btn-lg">Create Account
             <i class="fas fa-user ml-2"></i>
@@ -70,15 +65,15 @@ background-position-x: 50%;
                     </div>
                     <div class="md-form text-left">
                     <span class="text-danger" asp-validation-for="Register.Password"></span>
-                    <i class="fas fa-lock prefix" toggle='#Password' id="lockCon" aria-hidden="true"></i>
+                    <i class="fas fa-lock prefix" toggle='#Register_Password' id="lockCon" aria-hidden="true"></i>
                     <label asp-for="Register.Password">Password</label>
-                    <input asp-for="Register.Password" type="password" id="Password" class="form-control form-control-lg" />
+                    <input asp-for="Register.Password" type="password" id="Register_Password" class="form-control form-control-lg" />
                     </div>
                     <div class="md-form text-left">
                     <span class="text-danger" asp-validation-for="Register.Confirm"></span>
-                    <i class="fas fa-eye-slash prefix" toggle="#Confirm" id="eyeCon" aria-hidden="true"></i>
+                    <i class="fas fa-eye-slash prefix" toggle="#Register_Confirm" id="eyeCon" aria-hidden="true"></i>
                     <label asp-for="Register.Confirm">Confirm</label>
-                    <input asp-for="Register.Confirm" type="password" id="Confirm" class="form-control form-control-lg" />
+                    <input asp-for="Register.Confirm" type="password" id="Register_Confirm" class="form-control form-control-lg" />
                     </div>
                     <div class="modal-footer">
                     <button type="submit" class="btn btn-indigo">Submit</button>
@@ -143,9 +138,6 @@ background-position-x: 50%;
         <div class="row align-items-center">
         <!--Grid column-->
         <div class="col-md-6 mb-4">
-            @* <img
-            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3953&q=80"
-            class="img-fluid z-depth-1-half" alt="" /> *@
             <img
             src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
             class="img-fluid z-depth-1-half" alt="" />
@@ -167,11 +159,6 @@ background-position-x: 50%;
             <strong>Thousands</strong> of flash cards for each level.
             <strong>Free to use!</strong>
             </p>
-
-            <!-- CTA -->
-            @* <a target="_blank" href="#" class="btn btn-indigo btn-md">View Live Demo
-            <i class="far fa-image ml-1"></i>
-            </a> *@
         </div>
         <!--Grid column-->
         </div>
@@ -249,7 +236,7 @@ background-position-x: 50%;
 
     <hr class="my-5" />
 
-    <!--Section: Not enough-->
+    <!--Section: Future-->
     <section>
         <h2 class="my-5 h3 text-center ml-5">In the future...</h2>
 
@@ -364,7 +351,7 @@ background-position-x: 50%;
         </div>
         <!--/First row-->
     </section>
-    <!--Section: Not enough-->
+    <!--Section: Future-->
 
     <hr class="mb-5" />
     </div>
@@ -375,32 +362,29 @@ background-position-x: 50%;
 <footer class="page-footer text-center font-small mt-4 wow fadeIn">
     <!--Call to action-->
     <div class="pt-4">
-    <a class="btn btn-outline-white" href="mailto:achristopherwheeler@gmail.com"
-    target="_blank" role="button">Contact
-        <i class="far fa-envelope ml-2"></i>
-    </a>
-    <a class="btn btn-outline-white" href="#" target="_blank"
+        <a class="btn btn-outline-white" href="mailto:achristopherwheeler@gmail.com"
+        target="_blank" role="button">Contact
+            <i class="far fa-envelope ml-2"></i>
+        </a>
+    @* <a class="btn btn-outline-white" href="#" target="_blank"
     role="button">Portfolio
         <i class="fas fa-briefcase ml-2"></i>
-    </a>
+    </a> *@
     </div>
     <!--/.Call to action-->
-
     <hr class="my-4" />
-
     <!-- Social icons -->
     <div class="pb-4">
-    <a href="https://github.com/AndrewCWheeler" target="_blank">
-        <i class="fab fa-github mr-3"></i>
-    </a>
+        <a href="https://github.com/AndrewCWheeler" target="_blank">
+            <i class="fab fa-github mr-3"></i>
+        </a>
     </div>
     <!-- Social icons -->
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
-    © 2021 Copyright
-    <a href="#" target="_blank">
-    </a>
+        © 2021 Copyright
+        <a href="#" target="_blank"></a>
     </div>
     <!--/.Copyright-->
 </footer>
